@@ -1,0 +1,80 @@
+{
+  "name": "llxp-windows_pki",
+  "version": "0.0.1",
+  "author": "llxp",
+  "summary": "A module to manage Active Directory Certificate Services RootCA/SubCA",
+  "license": "Apache-2.0",
+  "source": "https://github.com/llxp/windows_pki.git",
+  "project_page": "https://github.com/llxp/windows_pki",
+  "issues_url": "https://github.com/llxp/windows_pki/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 5.0.0 < 6.0.0"
+    },
+    {
+      "name": "puppetlabs/dsc",
+      "version_requirement": ">= 1.9.2 < 2.0.0"
+    },
+    {
+      "name": "puppet/healthcheck",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "jordan/fileshare",
+      "version_requirement": ">= 2.0.4"
+    },
+    {
+      "name": "hbuckle/powershellmodule",
+      "version_requirement": ">= 2.0.1"
+    },
+    {
+      "name": "puppet/windowsfeature",
+      "version_requirement": ">= 3.2.2"
+    },
+    {
+      "name": "puppetlabs/acl",
+      "version_requirement": ">= 3.1.0"
+    },
+    {
+      "name": "puppetlabs/iis",
+      "version_requirement": ">= 7.0.0"
+    },
+    {
+      "name": "puppetlabs/powershell",
+      "version_requirement": ">= 3.0.1"
+    },
+    {
+      "name": "puppetlabs/pwshlib",
+      "version_requirement": ">= 0.4.1"
+    },
+    {
+      "name": "puppetlabs/reboot",
+      "version_requirement": ">= 2.4.0"
+    },
+    {
+      "name": "puppetlabs/registry",
+      "version_requirement": ">= 3.1.0"
+    },
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "windows",
+      "operatingsystemrelease": [
+        "2008 R2",
+        "2012 R2",
+        "2016",
+        "2019"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.0.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.15.0",
+  "template-url": "pdk-default#1.15.0",
+  "template-ref": "tags/1.15.0-0-g0bc522e"
+}
