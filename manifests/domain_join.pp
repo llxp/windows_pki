@@ -7,16 +7,6 @@ class windows_pki::domain_join (
 
   notify { 'waiting for the active directory domain to be available': }
 
-  #dsc_xwaitforaddomain { 'waitforadddomain':
-  #  dsc_domainname => $domain_fqdn,
-  #  dsc_domainusercredential => {
-  #    user => $domain_username,
-  #    password => $domain_password
-  #  },
-  #  dsc_retrycount => 200,
-  #  dsc_retryintervalsec => 10
-  #}
-
   tcp_conn_validator { "waitforadddomain":
     host => $domain_fqdn,
     port => $ldap_port
@@ -53,17 +43,9 @@ class windows_pki::domain_join (
     unless => "if ((Get-WMIObject Win32_ComputerSystem).Domain -ne '${domain_fqdn}') { exit 1 }",
   }
 
-  #class { 'domain_membership':
-  #  domain       => $domain_fqdn,
-  #  username     => $domain_username,
-  #  password     => $domain_password.unwrap,
-  #  join_options => '3',
-  #}
-
-  #Dsc_xwaitforaddomain['waitforadddomain']
-  #-> Dsc_xadcomputer['join_domain']
-  #-> Class['domain_membership']
-  Tcp_conn_validator['waitforadddomain']
+  Notifyp['waiting for the active directory domain to be available']
+  -> Tcp_conn_validator['waitforadddomain']
+  -> Notify['joining the computer to active directory']
   -> Exec['execute_domain_join']
 
 }
