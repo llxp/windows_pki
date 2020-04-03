@@ -8,9 +8,14 @@ class windows_pki::iis_config {
     type => dword,
     data => '00000001'
   }
-  ~> service { 'WMSVC':
+
+  service { 'WMSVC':
     ensure => 'running',
     enable => true
   }
+
+  Notify['enable iis remote management']
+  -> Registry_value['EnableRemoteManagement']
+  ~> Service['WMSVC']
 
 }
