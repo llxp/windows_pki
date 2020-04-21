@@ -55,7 +55,7 @@
     {
       "name": "puppetlabs/registry",
       "version_requirement": ">= 3.1.0"
-    },
+    }
   ],
   "operatingsystem_support": [
     {
